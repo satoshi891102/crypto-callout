@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, XCircle, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { SPRING_TRANSITION, STAGGER_CONTAINER, SCALE_TAP } from "@/lib/constants";
+import { SPRING_TRANSITION } from "@/lib/constants";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { CoinIcon } from "@/components/shared/coin-icon";
 import { SectionHeader } from "@/components/shared/section-header";
@@ -70,15 +69,9 @@ function PredictionRow({ prediction, index }: PredictionRowProps) {
   const priceChange = getPriceChangeData(prediction);
 
   return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, y: 8 },
-        visible: { opacity: 1, y: 0 },
-      }}
-      transition={{ ...SPRING_TRANSITION, delay: index * 0.06 }}
+    <div
     >
-      <motion.div
-        {...SCALE_TAP}
+      <div
         className="group flex items-center gap-3 rounded-lg border border-transparent px-3 py-2.5 transition-colors hover:border-border hover:bg-elevated/50"
       >
         {/* Status indicator */}
@@ -158,8 +151,8 @@ function PredictionRow({ prediction, index }: PredictionRowProps) {
             </span>
           )}
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
 
@@ -192,10 +185,7 @@ export function RecentlyVerified({
         }
       />
 
-      <motion.div
-        variants={STAGGER_CONTAINER}
-        initial="hidden"
-        animate="animate"
+      <div
         className="space-y-0.5"
       >
         {data.map((prediction, i) => (
@@ -205,7 +195,7 @@ export function RecentlyVerified({
             index={i}
           />
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

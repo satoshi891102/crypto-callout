@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { TrendingUp, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { SPRING_TRANSITION, STAGGER_CONTAINER, SCALE_TAP } from "@/lib/constants";
+import { SPRING_TRANSITION } from "@/lib/constants";
 import { CoinIcon } from "@/components/shared/coin-icon";
 import { SectionHeader } from "@/components/shared/section-header";
 import { MOCK_TRENDING_COINS, type TrendingCoin } from "@/data/mock-home";
@@ -19,11 +18,8 @@ function AccuracyBar({ value }: { value: number }) {
 
   return (
     <div className="h-1.5 w-full rounded-full bg-elevated">
-      <motion.div
+      <div
         className={cn("h-full rounded-full", color)}
-        initial={{ width: 0 }}
-        animate={{ width: `${value}%` }}
-        transition={{ ...SPRING_TRANSITION, delay: 0.2 }}
       />
     </div>
   );
@@ -36,15 +32,9 @@ interface TrendingRowProps {
 
 function TrendingRow({ coin, index }: TrendingRowProps) {
   return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, x: -8 },
-        visible: { opacity: 1, x: 0 },
-      }}
-      transition={{ ...SPRING_TRANSITION, delay: index * 0.06 }}
+    <div
     >
-      <motion.div
-        {...SCALE_TAP}
+      <div
         className="group flex items-center gap-3 rounded-lg border border-transparent px-3 py-3 transition-colors hover:border-border hover:bg-elevated/50"
       >
         <CoinIcon symbol={coin.symbol} size="md" animated={false} />
@@ -87,8 +77,8 @@ function TrendingRow({ coin, index }: TrendingRowProps) {
             </span>
           </div>
         </div>
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }
 
@@ -118,16 +108,13 @@ export function TrendingPredictions({
         }
       />
 
-      <motion.div
-        variants={STAGGER_CONTAINER}
-        initial="hidden"
-        animate="animate"
+      <div
         className="space-y-1"
       >
         {coins.map((coin, i) => (
           <TrendingRow key={coin.symbol} coin={coin} index={i} />
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

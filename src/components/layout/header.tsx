@@ -1,23 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { NavLink } from "@/components/layout/nav-link";
 import { SearchDialog } from "@/components/layout/search-dialog";
-import { NAV_ITEMS, APP_NAME, SPRING_TRANSITION, FADE_IN } from "@/lib/constants";
+import { NAV_ITEMS, APP_NAME } from "@/lib/constants";
 
 export function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
 
   return (
     <>
-      <motion.header
-        initial={FADE_IN.initial}
-        animate={FADE_IN.animate}
-        transition={FADE_IN.transition}
+      <header
         className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/90 backdrop-blur-xl"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -70,7 +66,7 @@ export function Header() {
             </div>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
     </>

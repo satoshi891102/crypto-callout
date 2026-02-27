@@ -1,22 +1,14 @@
-"use client";
-
-import { type ReactNode } from "react";
-import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 interface PageTransitionProps {
-  children: ReactNode;
+  children: React.ReactNode;
   className?: string;
 }
 
 export function PageTransition({ children, className }: PageTransitionProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className={className}
-    >
+    <div className={cn("animate-[fadeInUp_0.4s_ease-out_both]", className)}>
       {children}
-    </motion.div>
+    </div>
   );
 }

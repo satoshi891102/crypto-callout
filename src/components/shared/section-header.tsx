@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { SPRING_TRANSITION } from "@/lib/constants";
 
@@ -28,10 +27,7 @@ export function SectionHeader({
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={SPRING_TRANSITION}
+    <div
       className={cn("flex items-start justify-between gap-4", className)}
     >
       <div className="min-w-0">
@@ -58,6 +54,6 @@ export function SectionHeader({
       </div>
 
       {action && <div className="shrink-0">{action}</div>}
-    </motion.div>
+    </div>
   );
 }

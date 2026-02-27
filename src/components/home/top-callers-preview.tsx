@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowRight, Flame } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { SPRING_TRANSITION, STAGGER_CONTAINER, SCALE_TAP } from "@/lib/constants";
+import { SPRING_TRANSITION } from "@/lib/constants";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { RankBadge } from "@/components/leaderboard/rank-badge";
 import { Sparkline } from "@/components/shared/sparkline";
@@ -40,16 +39,10 @@ function CallerRow({ entry, index }: CallerRowProps) {
         : "var(--accent-brand)";
 
   return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, y: 8 },
-        visible: { opacity: 1, y: 0 },
-      }}
-      transition={{ ...SPRING_TRANSITION, delay: index * 0.06 }}
+    <div
     >
       <Link href={`/influencers/${influencer.id}`}>
-        <motion.div
-          {...SCALE_TAP}
+        <div
           className="group flex items-center gap-3 rounded-lg border border-transparent px-3 py-2.5 transition-colors hover:border-border hover:bg-elevated/50"
         >
           {/* Rank */}
@@ -109,9 +102,9 @@ function CallerRow({ entry, index }: CallerRowProps) {
               </span>
             </div>
           </div>
-        </motion.div>
+        </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }
 
@@ -144,16 +137,13 @@ export function TopCallersPreview({
         }
       />
 
-      <motion.div
-        variants={STAGGER_CONTAINER}
-        initial="hidden"
-        animate="animate"
+      <div
         className="space-y-0.5"
       >
         {data.map((entry, i) => (
           <CallerRow key={entry.influencer.id} entry={entry} index={i} />
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }
