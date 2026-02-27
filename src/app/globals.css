@@ -1,26 +1,249 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * CryptoCallout — Design Token System
+ *
+ * Dark-first data-credibility product.
+ * Colors mapped from UX spec hex values to oklch.
+ *
+ * bg-primary:        #0A0E17
+ * bg-surface:        #111827
+ * bg-elevated:       #1A2332
+ * border-default:    #1E293B
+ * border-focus:      #6366F1
+ * accent-brand:      #6366F1
+ * accent-brand-hover:#818CF8
+ * status-correct:    #10B981
+ * status-incorrect:  #EF4444
+ * status-pending:    #F59E0B
+ * text-primary:      #F1F5F9
+ * text-secondary:    #94A3B8
+ * text-muted:        #64748B
+ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* CryptoCallout is dark-only by design. Light mode maps to the same dark palette. */
+  --background: oklch(0.13 0.015 260);           /* #0A0E17 */
+  --foreground: oklch(0.95 0.01 250);             /* #F1F5F9 */
+
+  --card: oklch(0.18 0.015 260);                  /* #111827 */
+  --card-foreground: oklch(0.95 0.01 250);        /* #F1F5F9 */
+
+  --popover: oklch(0.18 0.015 260);               /* #111827 */
+  --popover-foreground: oklch(0.95 0.01 250);     /* #F1F5F9 */
+
+  --primary: oklch(0.55 0.24 275);                /* #6366F1 — accent-brand */
+  --primary-foreground: oklch(0.98 0 0);           /* white */
+
+  --secondary: oklch(0.22 0.015 255);             /* #1A2332 — bg-elevated */
+  --secondary-foreground: oklch(0.95 0.01 250);   /* #F1F5F9 */
+
+  --muted: oklch(0.22 0.015 255);                 /* #1A2332 */
+  --muted-foreground: oklch(0.50 0.015 255);      /* #64748B */
+
+  --accent: oklch(0.55 0.24 275);                 /* #6366F1 */
+  --accent-foreground: oklch(0.98 0 0);
+
+  --destructive: oklch(0.58 0.22 25);             /* #EF4444 */
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --success: oklch(0.64 0.17 165);                /* #10B981 */
+  --success-foreground: oklch(0.98 0 0);
+
+  --warning: oklch(0.75 0.16 75);                 /* #F59E0B */
+  --warning-foreground: oklch(0.13 0.015 260);
+
+  --border: oklch(0.25 0.015 255);                /* #1E293B */
+  --input: oklch(0.18 0.015 260);                 /* #111827 */
+  --ring: oklch(0.55 0.24 275);                   /* #6366F1 — border-focus */
+  --radius: 0.5rem;
+
+  /* Semantic surface tokens */
+  --surface: oklch(0.18 0.015 260);               /* #111827 */
+  --elevated: oklch(0.22 0.015 255);              /* #1A2332 */
+
+  /* Text hierarchy */
+  --text-primary: oklch(0.95 0.01 250);           /* #F1F5F9 */
+  --text-secondary: oklch(0.68 0.015 250);        /* #94A3B8 */
+  --text-muted: oklch(0.50 0.015 255);            /* #64748B */
+
+  /* Status with alpha backgrounds */
+  --status-correct: oklch(0.64 0.17 165);         /* #10B981 */
+  --status-correct-bg: oklch(0.64 0.17 165 / 8%);
+  --status-incorrect: oklch(0.58 0.22 25);        /* #EF4444 */
+  --status-incorrect-bg: oklch(0.58 0.22 25 / 8%);
+  --status-pending: oklch(0.75 0.16 75);          /* #F59E0B */
+  --status-pending-bg: oklch(0.75 0.16 75 / 8%);
+
+  /* Brand accent states */
+  --accent-brand: oklch(0.55 0.24 275);           /* #6366F1 */
+  --accent-brand-hover: oklch(0.65 0.20 275);     /* #818CF8 */
+}
+
+.dark {
+  /* Dark mode is the same — CryptoCallout is dark-only */
+  --background: oklch(0.13 0.015 260);
+  --foreground: oklch(0.95 0.01 250);
+  --card: oklch(0.18 0.015 260);
+  --card-foreground: oklch(0.95 0.01 250);
+  --popover: oklch(0.18 0.015 260);
+  --popover-foreground: oklch(0.95 0.01 250);
+  --primary: oklch(0.55 0.24 275);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.22 0.015 255);
+  --secondary-foreground: oklch(0.95 0.01 250);
+  --muted: oklch(0.22 0.015 255);
+  --muted-foreground: oklch(0.50 0.015 255);
+  --accent: oklch(0.55 0.24 275);
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --success: oklch(0.64 0.17 165);
+  --success-foreground: oklch(0.98 0 0);
+  --warning: oklch(0.75 0.16 75);
+  --warning-foreground: oklch(0.13 0.015 260);
+  --border: oklch(0.25 0.015 255);
+  --input: oklch(0.18 0.015 260);
+  --ring: oklch(0.55 0.24 275);
+  --surface: oklch(0.18 0.015 260);
+  --elevated: oklch(0.22 0.015 255);
+  --text-primary: oklch(0.95 0.01 250);
+  --text-secondary: oklch(0.68 0.015 250);
+  --text-muted: oklch(0.50 0.015 255);
+  --status-correct: oklch(0.64 0.17 165);
+  --status-correct-bg: oklch(0.64 0.17 165 / 8%);
+  --status-incorrect: oklch(0.58 0.22 25);
+  --status-incorrect-bg: oklch(0.58 0.22 25 / 8%);
+  --status-pending: oklch(0.75 0.16 75);
+  --status-pending-bg: oklch(0.75 0.16 75 / 8%);
+  --accent-brand: oklch(0.55 0.24 275);
+  --accent-brand-hover: oklch(0.65 0.20 275);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-status-correct: var(--status-correct);
+  --color-status-correct-bg: var(--status-correct-bg);
+  --color-status-incorrect: var(--status-incorrect);
+  --color-status-incorrect-bg: var(--status-incorrect-bg);
+  --color-status-pending: var(--status-pending);
+  --color-status-pending-bg: var(--status-pending-bg);
+  --color-accent-brand: var(--accent-brand);
+  --color-accent-brand-hover: var(--accent-brand-hover);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Skeleton pulse animation for loading states ── */
+@keyframes skeleton-pulse {
+  0%, 100% {
+    background-color: oklch(0.22 0.015 255);
+  }
+  50% {
+    background-color: oklch(0.18 0.015 260);
+  }
+}
+
+.animate-skeleton {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+/* ── Shimmer overlay for premium loading skeletons ── */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(0.30 0.015 255 / 8%) 40%,
+    oklch(0.35 0.015 255 / 12%) 50%,
+    oklch(0.30 0.015 255 / 8%) 60%,
+    transparent 100%
+  );
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* ── Subtle glow pulse for live badges ── */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 4px 0 oklch(0.55 0.24 275 / 20%);
+  }
+  50% {
+    box-shadow: 0 0 12px 2px oklch(0.55 0.24 275 / 40%);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* ── Reduced motion: disable all custom animations ── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-skeleton,
+  .animate-shimmer,
+  .animate-glow-pulse {
+    animation: none;
+  }
+
+  .animate-shimmer::after {
+    animation: none;
+    display: none;
+  }
 }
