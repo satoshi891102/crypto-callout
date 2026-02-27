@@ -179,8 +179,8 @@ export function RecentlyVerified({
   return (
     <section className={cn("space-y-4", className)}>
       <SectionHeader
-        title="Recent Predictions"
-        description="Latest tracked calls and resolutions"
+        title="Latest Calls"
+        description="Fresh predictions hitting the timeline"
         action={
           <Link
             href="/predictions"

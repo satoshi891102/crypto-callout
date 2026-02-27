@@ -17,9 +17,9 @@ import type {
 /* ── App Meta ── */
 
 export const APP_NAME = "CryptoCallout" as const;
-export const APP_TAGLINE = "AI tracks every public crypto prediction from influencers and scores accuracy." as const;
+export const APP_TAGLINE = "Holding crypto influencers accountable, one prediction at a time." as const;
 export const APP_DESCRIPTION =
-  "See who actually knows what they're talking about. Track predictions, score accuracy, and hold influencers accountable." as const;
+  "We tracked thousands of crypto predictions. Most influencers are worse than a coin flip. See the receipts." as const;
 
 /* ── Animation ── */
 

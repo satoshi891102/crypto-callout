@@ -131,8 +131,8 @@ export function TopCallersPreview({
   return (
     <section className={cn("space-y-4", className)}>
       <SectionHeader
-        title="Top Callers"
-        description="Highest accuracy influencers"
+        title="Who's Actually Good"
+        description="The rare few who beat the odds"
         action={
           <Link
             href="/leaderboard"

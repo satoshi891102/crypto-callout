@@ -8,20 +8,24 @@ import { PageTransition } from "@/components/shared/page-transition";
 export default function HomePage() {
   return (
     <PageTransition>
-      <div className="mx-auto max-w-7xl space-y-12 px-4 py-8 sm:px-6 lg:px-8">
-        {/* Hero banner with key stats */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Full-width provocative hero */}
         <HeroStats />
 
-        {/* Two-column layout: left = main content, right = sidebar */}
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
-          {/* Main column */}
-          <div className="space-y-12 lg:col-span-2">
+        {/* Featured: Worst Calls — the drama section comes first */}
+        <section className="border-t border-border/30 py-12">
+          <WorstCalls />
+        </section>
+
+        {/* Two-column: Predictions + Sidebar */}
+        <div className="grid grid-cols-1 gap-12 border-t border-border/30 py-12 lg:grid-cols-5">
+          {/* Main column — wider */}
+          <div className="space-y-12 lg:col-span-3">
             <RecentlyVerified />
-            <WorstCalls />
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-12">
+          {/* Sidebar — narrower */}
+          <div className="space-y-12 lg:col-span-2">
             <TopCallersPreview />
             <TrendingPredictions />
           </div>

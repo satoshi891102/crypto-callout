@@ -104,8 +104,8 @@ export function TrendingPredictions({
   return (
     <section className={cn("space-y-4", className)}>
       <SectionHeader
-        title="Trending"
-        description="Most predicted coins right now"
+        title="Most Called"
+        description="Where the hype is pointing"
         badge="Live"
         action={
           <Link

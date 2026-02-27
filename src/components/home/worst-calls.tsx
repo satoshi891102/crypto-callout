@@ -161,8 +161,8 @@ export function WorstCalls({
   return (
     <section className={cn("space-y-4", className)}>
       <SectionHeader
-        title="Worst Calls"
-        description="Biggest misses from tracked influencers"
+        title="Wall of Shame"
+        description="The calls that aged like milk"
         action={
           <Link
             href="/predictions?status=incorrect"

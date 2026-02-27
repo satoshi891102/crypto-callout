@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | CryptoCallout",
   },
   description:
-    "AI tracks every public crypto prediction from influencers and scores accuracy. See who actually knows what they're talking about.",
+    "We tracked thousands of crypto predictions. Most influencers are worse than a coin flip. See the receipts.",
   keywords: [
     "crypto",
     "predictions",
@@ -40,14 +40,14 @@ export const metadata: Metadata = {
     siteName: "CryptoCallout",
     title: "CryptoCallout — Track Crypto Prediction Accuracy",
     description:
-      "AI tracks every public crypto prediction from influencers and scores accuracy. See who actually knows what they're talking about.",
+      "We tracked thousands of crypto predictions. Most influencers are worse than a coin flip. See the receipts.",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: "CryptoCallout — Track Crypto Prediction Accuracy",
     description:
-      "AI tracks every public crypto prediction from influencers and scores accuracy.",
+      "We tracked thousands of crypto predictions. Most influencers are worse than a coin flip.",
   },
   robots: {
     index: true,
